@@ -1,10 +1,13 @@
+import React from "react";
+import Amplify from 'aws-amplify';
+import awsExports from './aws-exports';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+Amplify.configure(awsExports);
 
-function App() {
-  return (
-    
-    <div>App</div>
-
-  );
+class App extends React.Component {
+  render() {
+    return <div>App</div>;
+  }
 }
 
-export default App;
+export default withAuthenticator(App, { includeGreetings: true });
