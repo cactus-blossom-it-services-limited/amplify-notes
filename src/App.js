@@ -9,12 +9,12 @@ Amplify.configure(awsExports);
 
 class App extends React.Component {
   state = {
-    notes: "",
+    note: "",
     notes: []
   }
 
 async componentDidMount() { const result = await API.graphql(graphqlOperation(listNotes))
-this.setState({ notes: result.data.listNotes })
+this.setState({ notes: result.data.listNotes.items })
 }
 
 handleChangeNote = event => {
